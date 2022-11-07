@@ -1,0 +1,26 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  background-color: #4158D0;
+  background-image: url("./img/creatortyler.webp");
+  height: 1080px;
+  color: white;
+
+  /* height: 100%; */
+
+}
+img{
+  height: 200px;
+}
+
+.card {
+  /* Rectangle 9 */
+
+  position: absolute;
+  width: 100%;
+  padding: 3rem 3.5rem;
+  background: rgb(0, 0, 0, 0.75);
+  border-radius: 15px;
+  color: white;
+
+}

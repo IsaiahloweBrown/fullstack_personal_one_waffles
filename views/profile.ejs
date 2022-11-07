@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+    <title>Creator Waffles</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <!-- <div class="page-header text-center"> -->
+        <!-- <h1><span class="fa fa-anchor"></span> Profile Page</h1> -->
+        <!-- <a href="/logout" class="btn btn-default btn-sm text-center">Logout</a>
+    </div> -->
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <!-- <div class="col-sm-6">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Local</h3>
+
+                <% if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                        <strong>password</strong>: <%= user.local.password %>
+                    </p>
+
+                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <% } %>
+
+            </div>
+        </div> -->
+        <section class="col-sm-6">
+          <section class="addedToCart">
+            <h3>Delivered Orders</h3>
+            <ul class="orders">
+            <% for(var i=0; i<orders.length; i++) {%>
+              <% if (orders[i].status === "Has Been Delivered to Address") {%>
+                <li class="order">
+                  <span><%= orders[i].name %></span>
+                  <span><%= orders[i].sizes %></span>
+                  <span><%= orders[i].styles %></span>
+                  <span><%= orders[i].sides %></span>
+                  <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                  <span><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span>
+                  <span><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                </li>
+              <% } %>
+            <% } %>
+            </ul>
+          </section>
+          <section class="addedToCart">
+            <h3>Not Delivered Yet</h3>
+            <ul class="orders">
+            <% for(var i=0; i<orders.length; i++) {%>
+              <% if (orders[i].status !== "Has Been Delivered to Address") {%>
+                <li class="order">
+                  <span><%= orders[i].name %></span>
+                  <span><%= orders[i].sizes %></span>
+                  <span><%= orders[i].styles %></span>
+                  <span><%= orders[i].sides %></span>
+                  <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                  <span><i class="fa fa-exclamation-circle" aria-hidden="true"></i></span>
+                  <span><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                </li>
+              <% } %>
+            <% } %>
+            </ul>
+          </section>
+          
+          
+
+          <h2>Add a order</h2>
+        <% if (user.local.email) { %>
+          <section class="card">
+            <form action="/orders" method="POST">
+              <label for="name">Name:</label>
+              <input class="form-control" type="text" value="<%= user.local.email %>" name="name" >
+              <label for="sizes">Size:</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sizes" value="2">
+                <label for="sizes">2 Waffles</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sizes" value="4">
+                <label for="sizes">4 Waffles</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sizes" value="6">
+                <label for="sizes">6 Waffles</label>
+              </div>
+              <label for="sizes">Style:</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="styles" value="Classic Tyler's Butter Milk Waffles">
+                <label for="styles">Classic Tyler's Butter Milk Waffles</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="styles" value="Creator's Blueberry Waffles">
+                <label for="styles">Creator's Blueberry Waffles</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="styles" value="America's Strawberry Waffles">
+                <label for="styles">America's Strawberry Waffles</label>
+              </div>
+        
+              <label for="sizes">Sides:</label>
+  
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sides" value="with Bacon">
+                <label for="sizes">Bacon Surprise</label>
+  
+              </div>    
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sides" value="with Cheese Eggs">
+                <label for="sizes">Good Morning Cheese Eggs</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="sides" value="with Hash Brown">
+                <label for="sizes">Proper Goodbye Hash Brown</label>
+              </div>      
+  
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </section>
+        </section>
+        <% } %>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
