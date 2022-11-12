@@ -1,3 +1,5 @@
+const ObjectId = require('mongodb').ObjectId
+
 module.exports = function(app, passport, db) {
 
 // normal routes ===============================================================
@@ -34,6 +36,7 @@ module.exports = function(app, passport, db) {
 
 // message board routes ===============================================================
 
+    //Post Request 
     app.post('/orders', (req, res) => {
       db.collection('orders').save({name: req.body.name, sizes: req.body.sizes, styles: req.body.styles, sides: req.body.sides, status: null}, (err, result) => {
         if (err) return console.log(err)
@@ -42,12 +45,16 @@ module.exports = function(app, passport, db) {
       })
     })
 
+
+    //Put Request 
     app.put('/orders', (req, res) => {
 
    
       let value = "Has Been Delivered to Address" 
       db.collection('orders')
-      .findOneAndUpdate({name: req.body.name, sizes: req.body.sizes, styles: req.body.styles, sides: req.body.sides}, {
+      //id string
+      //
+      .findOneAndUpdate({_id: ObjectId(req.body.id) }, {
         $set: {
           status:value
         }
@@ -60,10 +67,10 @@ module.exports = function(app, passport, db) {
       })
     })
     //api that gives back response
-    app.put('/dislikes', (req, res) => {
+    app.put('/notDelivered', (req, res) => {
       let value = "Has Been removed from Cart"
       db.collection('orders')
-      .findOneAndUpdate({name: req.body.name, sizes: req.body.sizes, styles: req.body.styles, sides: req.body.sides}, {
+      .findOneAndUpdate({_id: ObjectId(req.body.id)}, {
         $set: {
           status: value,
           

@@ -4,20 +4,19 @@ var trash = document.getElementsByClassName("fa-trash-o");
 
 Array.from(cart).forEach(function(element) {
       element.addEventListener('click', function(){
-        const name = this.parentNode.parentNode.childNodes[1].innerText
-        const sizes = this.parentNode.parentNode.childNodes[3].innerText
-        const styles = this.parentNode.parentNode.childNodes[5].innerText
-        const sides = this.parentNode.parentNode.childNodes[7].innerText
-        const status = this.parentNode.parentNode.childNodes[9].innerText
+        // const name = this.parentNode.parentNode.childNodes[1].innerText
+        // const sizes = this.parentNode.parentNode.childNodes[3].innerText
+        // const styles = this.parentNode.parentNode.childNodes[5].innerText
+        // const sides = this.parentNode.parentNode.childNodes[7].innerText
+        // const status = this.parentNode.parentNode.childNodes[9].innerText
+        const id = this.parentNode.parentNode.childNodes[15].innerText
         fetch('orders', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
+          // change to reflect changes in routes.js 
+          //id here 'id': id
           body: JSON.stringify({
-            'name': name,
-            'sizes': sizes,
-            'styles': styles,
-            'sides': sides,
-            'status': status
+              id: id
           })
         })
         .then(response => {
@@ -32,20 +31,17 @@ Array.from(cart).forEach(function(element) {
 
 Array.from(notDelivered).forEach(function(element) {
   element.addEventListener('click', function(){
-    const name = this.parentNode.parentNode.childNodes[1].innerText
-    const sizes = this.parentNode.parentNode.childNodes[3].innerText
-    const styles = this.parentNode.parentNode.childNodes[5].innerText
-    const sides = this.parentNode.parentNode.childNodes[7].innerText
-    const status = this.parentNode.parentNode.childNodes[9].innerText
-    fetch('dislikes', {
+    // const name = this.parentNode.parentNode.childNodes[1].innerText
+    // const sizes = this.parentNode.parentNode.childNodes[3].innerText
+    // const styles = this.parentNode.parentNode.childNodes[5].innerText
+    // const sides = this.parentNode.parentNode.childNodes[7].innerText
+    // const status = this.parentNode.parentNode.childNodes[9].innerText
+    const id = this.parentNode.parentNode.childNodes[15].innerText
+    fetch('notDelivered', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        'name': name,
-        'sizes': sizes,
-        'styles': styles,
-        'sides': sides,
-        'status': status
+        id: id
       })
     })
     .then(response => {
