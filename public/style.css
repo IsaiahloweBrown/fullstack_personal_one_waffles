@@ -38,19 +38,47 @@ h1, h2, h3, span {
 
 
 .card {
-  /* Rectangle 9 */
 
   position: absolute;
-  width: 33%;
-  padding: 3rem 3.5rem;
+  width: 30%;
+  padding: 3rem 2.5rem;
   background: rgb(0, 0, 0, 0.75);
   border-radius: 15px;
   color: white;
 
 }
 
+.card button {
+  text-align: center;
+}
+
 
 
 .hidden {
   display: none;
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.order {
+  margin: 7%;
+  background: rgb(0, 191, 255);
+  color:white;
+  border: 1px solid rgb(129, 129, 255);
+  border-radius: 5px;
+}
+
+.order-delivered {
+  margin: 7%;
+  background: rgb(228, 170, 24);
+  color:white;
+  border: 1px solid rgb(129, 129, 255);
+  border-radius: 5px;
 }

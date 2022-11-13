@@ -1,5 +1,5 @@
-var cart = document.getElementsByClassName("fa-shopping-cart");
-var notDelivered = document.getElementsByClassName("fa-exclamation-circle");
+var cart = document.getElementsByName("cart");
+var notDelivered = document.getElementsByName("close");
 var trash = document.getElementsByClassName("fa-trash-o");
 
 Array.from(cart).forEach(function(element) {
