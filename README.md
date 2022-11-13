@@ -1,13 +1,6 @@
-## Installation
+## Tyler the Creator's Waffles 
 
-1. Clone repo
-2. run `npm install`
+![image](https://user-images.githubusercontent.com/112201564/201543818-264a48c3-3ed9-4709-afd9-a78fac5d5c4b.png)
 
-## Usage
+Will Update Soon
 
-1. run `node server.js`
-2. Navigate to `localhost:8080`
-
-## Credit
-
-Modified from Scotch.io's auth tutorial
